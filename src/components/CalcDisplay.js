@@ -2,7 +2,7 @@ import React from "react";
 
 const CalcDisplay = () => {
   return (
-    <div className="calcDisplay">
+    <div className="calc-display">
       <h4 id="display">1234</h4>
     </div>
   );

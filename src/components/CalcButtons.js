@@ -1,26 +1,26 @@
 import Button from "./Button";
 
-const CalcButtons = () => {
+const CalcButtons = ({ currTheme }) => {
   return (
     <div className="calc-buttons">
-      <Button text={7}></Button>
-      <Button text={8}></Button>
-      <Button text={9}></Button>
-      <Button text="DEL"></Button>
-      <Button text={4}></Button>
-      <Button text={5}></Button>
-      <Button text={6}></Button>
-      <Button text="+"></Button>
-      <Button text={1}></Button>
-      <Button text={2}></Button>
-      <Button text={3}></Button>
-      <Button text="-"></Button>
-      <Button text="."></Button>
-      <Button text={0}></Button>
-      <Button text="/"></Button>
-      <Button text="x"></Button>
-      <Button text="RESET" wideButtonType={1}></Button>
-      <Button text="=" wideButtonType={2}></Button>
+      <Button text={7} themeNum={currTheme}></Button>
+      <Button text={8} themeNum={currTheme}></Button>
+      <Button text={9} themeNum={currTheme}></Button>
+      <Button text="DEL" themeNum={currTheme}></Button>
+      <Button text={4} themeNum={currTheme}></Button>
+      <Button text={5} themeNum={currTheme}></Button>
+      <Button text={6} themeNum={currTheme}></Button>
+      <Button text="+" themeNum={currTheme}></Button>
+      <Button text={1} themeNum={currTheme}></Button>
+      <Button text={2} themeNum={currTheme}></Button>
+      <Button text={3} themeNum={currTheme}></Button>
+      <Button text="-" themeNum={currTheme}></Button>
+      <Button text="." themeNum={currTheme}></Button>
+      <Button text={0} themeNum={currTheme}></Button>
+      <Button text="/" themeNum={currTheme}></Button>
+      <Button text="x" themeNum={currTheme}></Button>
+      <Button text="RESET" wideButtonType={1} themeNum={currTheme}></Button>
+      <Button text="=" wideButtonType={2} themeNum={currTheme}></Button>
     </div>
   );
 };

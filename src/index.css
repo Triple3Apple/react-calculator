@@ -6,11 +6,132 @@
 
 html {
   font-size: 62.5%;
+  font-family: "Spartan", sans-serif;
+}
+
+.calc-root {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background: hsl(222, 26%, 31%);
+  min-height: 100vh;
+}
+
+.calculator-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  padding: 3rem;
+
+  width: fit-content;
+}
+
+.header-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#app-name {
+  font-size: 3rem;
+  color: white;
+}
+
+.theme-selector {
+  /* background: rgb(163, 84, 84); */
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-selector .theme-text {
+  align-self: flex-end;
+  transform: translateY(-4px);
+  margin: 0rem 1.25rem;
+  color: white;
+}
+
+.selector-container {
+  /* background: rgb(133, 133, 133); */
+  width: 7.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin: 0.25rem 0;
+}
+
+.numbers h3 {
+  color: white;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100%;
+  height: 2.25rem;
+  background: hsl(223, 31%, 20%);
+  border-radius: 2rem;
+}
+
+.theme-selection {
+  background: hsl(6, 63%, 50%);
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 1rem;
+}
+
+.calc-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  background: hsl(224, 36%, 15%);
+  margin: 2rem 0rem;
+  border-radius: 0.75rem;
+
+  width: 100%;
+  height: 10rem;
+}
+
+#display {
+  width: 100%;
+  color: white;
+  text-align: right;
+
+  margin: 2.5rem;
+
+  font-size: 3.5rem;
+
+  transform: translateY(4px);
 }
 
 .calc-buttons {
-  width: 1000px;
-  margin: 2rem;
+  width: 45rem;
+  padding: 1.5rem;
+
+  border-radius: 0.75rem;
+
+  background: hsl(223, 31%, 20%);
 
   display: grid;
   /* grid-template-columns: 25% 25% 25% 25%; */
@@ -25,10 +146,10 @@ html {
   grid-row-gap: 0.5rem; 
   */
 
-  grid-gap: 0.75rem;
+  grid-gap: 1.5rem;
 
   /* Sets the height for each row */
-  grid-auto-rows: 75px;
+  grid-auto-rows: 70px;
 
   /* 
   Below line sets the minumum height to 100px and scales up if content inside is larger than 100px
@@ -38,21 +159,82 @@ html {
 }
 
 .button {
-  padding: 1rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
 
-  background: lightcoral;
+  padding: 1rem;
+  /* margin: 0.5rem; */
+  border-radius: 0.5rem;
+
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+.btn-theme1 {
+  background: hsl(30, 25%, 89%);
+  box-shadow: 0 0.5rem hsl(28, 16%, 65%);
+  /*
+    offset-x | offset-y | color 
+    box-shadow: 60px -16px teal;
+  */
+}
+
+.btn-theme1:hover {
+  box-shadow: 0 0rem hsl(28, 16%, 65%);
+  transform: translateY(0.5rem);
+}
+
+.btn-theme1.dif-color-key1 {
+  background: hsl(225, 21%, 49%);
+  box-shadow: 0 0.5rem hsl(224, 28%, 35%);
+}
+
+.btn-theme1.dif-color-key1:hover {
+  box-shadow: 0 0 hsl(224, 28%, 35%);
+  transform: translateY(0.5rem);
+}
+
+.btn-theme1.dif-color-key2 {
+  background: hsl(6, 63%, 50%);
+  box-shadow: 0 0.5rem hsl(6, 70%, 34%);
+}
+
+.btn-theme1.dif-color-key2:hover {
+  box-shadow: 0 0rem hsl(6, 70%, 34%);
+  transform: translateY(0.5rem);
+}
+
+.btn-theme1 p {
+  color: hsl(221, 14%, 31%);
+}
+
+.button p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+  transform: translateY(4px);
+}
+
+.white-text p {
+  color: aliceblue;
+}
+
+/* .blue-key,
+.two-grid-button1 {
+  background: hsl(225, 21%, 49%);
+} */
 
 .two-grid-button1 {
   grid-column-start: 1;
   grid-column-end: 3;
-  background: yellow;
 }
 
 .two-grid-button2 {
   grid-column-start: 3;
   grid-column-end: 5;
-  background: rgb(77, 138, 75);
 }
 
 .attribution {
@@ -62,4 +244,13 @@ html {
   width: 100%;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.attribution p {
+  color: aliceblue;
+  font-size: 1.2rem;
+}
+
+a {
+  color: aqua;
 }

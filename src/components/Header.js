@@ -1,11 +1,11 @@
 import ThemeSelector from "./ThemeSelector";
 
-const Header = () => {
+const Header = ({ onThemeChange }) => {
   return (
-    <div className="headerContainer">
+    <header className="header-container">
       <h1 id="app-name">calc</h1>
-      <ThemeSelector></ThemeSelector>
-    </div>
+      <ThemeSelector onThemeChange={onThemeChange}></ThemeSelector>
+    </header>
   );
 };
 

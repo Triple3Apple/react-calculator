@@ -7,6 +7,7 @@
 html {
   font-size: 62.5%;
   font-family: "Spartan", sans-serif;
+  font-weight: 700;
 }
 
 .calc-root {
@@ -16,8 +17,21 @@ html {
   align-items: center;
   justify-content: center;
 
-  background: hsl(222, 26%, 31%);
   min-height: 100vh;
+
+  transition: background 0.6s;
+}
+
+.calc-root-theme1 {
+  background: hsl(222, 26%, 31%);
+}
+
+.calc-root-theme2 {
+  background: hsl(0, 0%, 90%);
+}
+
+.calc-root-theme3 {
+  background: hsl(268, 75%, 9%);
 }
 
 .calculator-container {
@@ -43,7 +57,9 @@ html {
 
 #app-name {
   font-size: 3rem;
-  color: white;
+  /* color: white; */
+
+  transition: color 0.3s;
 }
 
 .theme-selector {
@@ -56,7 +72,8 @@ html {
   align-self: flex-end;
   transform: translateY(-4px);
   margin: 0rem 1.25rem;
-  color: white;
+
+  transition: color 0.3s;
 }
 
 .selector-container {
@@ -74,10 +91,8 @@ html {
   justify-content: space-around;
 
   margin: 0.25rem 0;
-}
 
-.numbers h3 {
-  color: white;
+  transition: color 0.3s;
 }
 
 .selector {
@@ -93,10 +108,21 @@ html {
 }
 
 .theme-selection {
-  background: hsl(6, 63%, 50%);
   width: 1.7rem;
   height: 1.7rem;
   border-radius: 1rem;
+}
+
+.theme-selection1 {
+  background: hsl(6, 63%, 50%);
+}
+
+.theme-selection2 {
+  background: hsl(25, 98%, 40%);
+}
+
+.theme-selection3 {
+  background: hsl(176, 100%, 44%);
 }
 
 .calc-display {
@@ -105,17 +131,28 @@ html {
   justify-content: end;
   align-items: center;
 
-  background: hsl(224, 36%, 15%);
   margin: 2rem 0rem;
   border-radius: 0.75rem;
 
   width: 100%;
   height: 10rem;
+
+  transition: background 0.6s;
+}
+
+.calc-display-theme1 {
+  background: hsl(224, 36%, 15%);
+}
+.calc-display-theme2 {
+  background: hsl(0, 0%, 93%);
+}
+.calc-display-theme3 {
+  background: hsl(268, 71%, 12%);
 }
 
 #display {
   width: 100%;
-  color: white;
+
   text-align: right;
 
   margin: 2.5rem;
@@ -123,6 +160,21 @@ html {
   font-size: 3.5rem;
 
   transform: translateY(4px);
+
+  transition: color 0.3s;
+}
+
+.normal-text-theme1 {
+  color: rgb(255, 255, 255);
+}
+.normal-btn-text-theme1 {
+  color: hsl(221, 14%, 31%);
+}
+.normal-text-theme2 {
+  color: hsl(60, 10%, 19%);
+}
+.normal-text-theme3 {
+  color: hsl(52, 100%, 62%);
 }
 
 .calc-buttons {
@@ -130,8 +182,6 @@ html {
   padding: 1.5rem;
 
   border-radius: 0.75rem;
-
-  background: hsl(223, 31%, 20%);
 
   display: grid;
   /* grid-template-columns: 25% 25% 25% 25%; */
@@ -152,10 +202,22 @@ html {
   grid-auto-rows: 70px;
 
   /* 
-  Below line sets the minumum height to 100px and scales up if content inside is larger than 100px
+  Below line sets the minimum height to 100px and scales up if content inside is larger than 100px
 
   grid-auto-rows: minmax(100px, auto);
   */
+
+  transition: background 0.6s;
+}
+
+.calc-buttons-theme1 {
+  background: hsl(223, 31%, 20%);
+}
+.calc-buttons-theme2 {
+  background: hsl(0, 5%, 81%);
+}
+.calc-buttons-theme3 {
+  background: hsl(268, 71%, 12%);
 }
 
 .button {
@@ -168,8 +230,10 @@ html {
   /* margin: 0.5rem; */
   border-radius: 0.5rem;
 
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s, color 0.5s;
 }
+
+/* Btn Theme 1 */
 
 .btn-theme1 {
   background: hsl(30, 25%, 89%);
@@ -185,28 +249,30 @@ html {
   transform: translateY(0.5rem);
 }
 
-.btn-theme1.dif-color-key1 {
+/* .btn-theme1.dif-color-key1 {
+  background: hsl(225, 21%, 49%);
+  box-shadow: 0 0.5rem hsl(224, 28%, 35%);
+} */
+.dif-color-theme1-key1 {
+  color: white;
   background: hsl(225, 21%, 49%);
   box-shadow: 0 0.5rem hsl(224, 28%, 35%);
 }
 
-.btn-theme1.dif-color-key1:hover {
+.dif-color-theme1-key1:hover {
   box-shadow: 0 0 hsl(224, 28%, 35%);
   transform: translateY(0.5rem);
 }
 
-.btn-theme1.dif-color-key2 {
+.dif-color-theme1-key2 {
+  color: white;
   background: hsl(6, 63%, 50%);
   box-shadow: 0 0.5rem hsl(6, 70%, 34%);
 }
 
-.btn-theme1.dif-color-key2:hover {
+.dif-color-theme1-key2:hover {
   box-shadow: 0 0rem hsl(6, 70%, 34%);
   transform: translateY(0.5rem);
-}
-
-.btn-theme1 p {
-  color: hsl(221, 14%, 31%);
 }
 
 .button p {
@@ -218,9 +284,87 @@ html {
   transform: translateY(4px);
 }
 
-.white-text p {
-  color: aliceblue;
+/* Btn Theme 2 */
+
+.btn-theme2 {
+  background: hsl(45, 7%, 89%);
+  box-shadow: 0 0.5rem hsl(35, 11%, 61%);
 }
+
+.btn-theme2:hover {
+  box-shadow: 0 0rem hsl(35, 11%, 61%);
+  transform: translateY(0.5rem);
+}
+
+.dif-color-theme2-key1 {
+  color: white;
+  background: hsl(185, 42%, 37%);
+  box-shadow: 0 0.5rem hsl(185, 58%, 25%);
+}
+
+.dif-color-theme2-key1:hover {
+  box-shadow: 0 0 hsl(185, 58%, 25%);
+  transform: translateY(0.5rem);
+}
+
+.dif-color-theme2-key2 {
+  color: white;
+  background: hsl(25, 98%, 40%);
+  box-shadow: 0 0.5rem hsl(25, 99%, 27%);
+}
+
+.dif-color-theme2-key2:hover {
+  box-shadow: 0 0rem hsl(25, 99%, 27%);
+  transform: translateY(0.5rem);
+}
+
+/* Btn Theme 3 */
+
+.btn-theme3 {
+  color: hsl(52, 100%, 62%);
+  background: hsl(268, 47%, 21%);
+  box-shadow: 0 0.5rem hsl(290, 70%, 36%);
+}
+
+.btn-theme3:hover {
+  box-shadow: 0 0rem hsl(290, 70%, 36%);
+  transform: translateY(0.5rem);
+}
+
+.dif-color-theme3-key1 {
+  color: white;
+  background: hsl(281, 89%, 26%);
+  box-shadow: 0 0.5rem hsl(285, 91%, 52%);
+}
+
+.dif-color-theme3-key1:hover {
+  box-shadow: 0 0 hsl(285, 91%, 52%);
+  transform: translateY(0.5rem);
+}
+
+.dif-color-theme3-key2 {
+  color: hsl(198, 20%, 13%);
+  background: hsl(176, 100%, 44%);
+  box-shadow: 0 0.5rem hsl(177, 92%, 70%);
+}
+
+.dif-color-theme3-key2:hover {
+  box-shadow: 0 0rem hsl(177, 92%, 70%);
+  transform: translateY(0.5rem);
+}
+
+.button p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+  transform: translateY(4px);
+}
+
+/* .white-text p {
+  color: aliceblue;
+} */
 
 /* .blue-key,
 .two-grid-button1 {

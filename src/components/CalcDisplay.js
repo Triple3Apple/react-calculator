@@ -1,9 +1,11 @@
 import React from "react";
 
-const CalcDisplay = () => {
+const CalcDisplay = ({ currTheme, displayText }) => {
   return (
-    <div className="calc-display">
-      <h4 id="display">1234</h4>
+    <div className={`calc-display ${"calc-display-theme" + currTheme}`}>
+      <h4 id="display" className={`${"normal-text-theme" + currTheme}`}>
+        {displayText}
+      </h4>
     </div>
   );
 };

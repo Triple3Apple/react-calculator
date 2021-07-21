@@ -4,7 +4,7 @@ const Button = ({
   text,
   wideButtonType,
   currTheme,
-  onDisplayTextChange,
+  // onDisplayTextChange,
   onButtonClick,
 }) => {
   // gridColumnStart: {1}, gridColumnEnd: 4
@@ -18,16 +18,16 @@ const Button = ({
 
   // }
 
-  const doButtonClickActions = (text) => {
-    // doButtonClickActions(text);
-    onButtonClick(text);
-  };
+  // const doButtonClickActions = (text) => {
+  //   // doButtonClickActions(text);
+  //   onButtonClick(text);
+  // };
 
   return (
     <>
       {wideButtonType === 1 ? (
         <div
-          onClick={() => onDisplayTextChange(text)}
+          onClick={() => onButtonClick(text)}
           className={`button two-grid-button1 ${`dif-color-theme${currTheme}-key1`} 
           }`}
         >
@@ -35,7 +35,7 @@ const Button = ({
         </div>
       ) : wideButtonType === 2 ? (
         <div
-          onClick={() => onDisplayTextChange(text)}
+          onClick={() => onButtonClick(text)}
           className={`button two-grid-button2 ${`dif-color-theme${currTheme}-key2`} 
           }`}
         >
@@ -43,7 +43,7 @@ const Button = ({
         </div>
       ) : (
         <div
-          onClick={() => doButtonClickActions(text)}
+          onClick={() => onButtonClick(text)}
           className={`button ${
             currTheme === 1
               ? "normal-btn-text-theme1"

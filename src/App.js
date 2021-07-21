@@ -4,31 +4,13 @@ import Header from "./components/Header";
 import CalcDisplay from "./components/CalcDisplay";
 import CalcButtons from "./components/CalcButtons";
 import Footer from "./components/Footer";
+import SmallInfoDiv from "./components/SmallInfoDiv";
 
 function App() {
   // TODO: Load last used theme
   const [theme, setTheme] = useState(1);
 
   const [calcText, setCalcText] = useState("0");
-
-  /*
-  Command Types:
-    1 = number
-    2 = Delete
-    3 = Reset
-    4 = Equal
-    5 = Add
-    6 = Subtract
-    7 = Divide
-    8 = Multiply
-  */
-
-  const [calcCommands, setCalcCommands] = useState([
-    {
-      inputType: 1,
-      inputVal: 0,
-    },
-  ]);
 
   const changeTheme = (num) => {
     if (num < 1 || num > 3) return;
@@ -38,22 +20,15 @@ function App() {
   };
 
   const changeCalcText = (text) => {
-    console.log(
-      `obtained text: ${text}, calcCommands length: ${calcCommands.length}, ${calcCommands[0].inputVal}`
-    );
-
-    // if (calcCommands.length === 1) {
-    //   return setCalcText(calcCommands[0].inputVal);
-    // }
+    console.log(`obtained text: ${text}`);
 
     setCalcText(text);
   };
 
-  const onModifyCalcCommands = (commands) => {};
-
   // className={`button two-grid-button1 white-text dif-color-key1 ${'btn-theme' + themeNum}`}
   return (
     <div className={`calc-root ${"calc-root-theme" + theme}`}>
+      <SmallInfoDiv currTheme={theme}></SmallInfoDiv>
       <div className="calculator-container">
         <Header onThemeChange={changeTheme} currTheme={theme}></Header>
         <CalcDisplay currTheme={theme} displayText={calcText}></CalcDisplay>

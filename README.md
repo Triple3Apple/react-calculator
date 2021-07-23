@@ -1,6 +1,6 @@
-# Calculator App in React.js
+# Calculator App in React.js 🖩
 
-**Click the link to see the Calculator App in action: [triple3apple.github.io/react-calculator/](https://triple3apple.github.io/react-calculator/)**
+**Click the link to see the Calculator App in action: 👉 [triple3apple.github.io/react-calculator/](https://triple3apple.github.io/react-calculator/)** 👈
 
 ### Reason for Making the App
 

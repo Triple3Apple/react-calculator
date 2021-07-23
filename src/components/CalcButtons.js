@@ -2,59 +2,31 @@ import Button from "./Button";
 import { useState, useEffect } from "react";
 
 const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
-  const [commands, setCommands] = useState([
-    {
-      inputType: 1,
-      inputVal: 0,
-    },
-  ]);
-
   // Holds the current number (will be used for checking if decimal point already included in number)
   const [number, setNumber] = useState("0");
 
   // Holds the text to be displayed on calc display
   const [calcDisplayText, setCalcDisplayText] = useState("0");
 
-  // this function called when a symbol is pressed
-  // const addCommands = (command) => {};
+  // Boolean used to track if decimal point was used
+  const [decimalPointUsed, setDecimalPointUsed] = useState(false);
 
-  // const changeNumber = (digit) => {
-  //   let digitVal = Number(digit);
-  //   let numberVal = Number(number);
-
-  //   if (numberVal === 0 && digitVal === 0) {
-  //     console.log("1");
-  //     setNumber(0);
-  //     // } else if (numberVal === 0) {
-  //     //   console.log("2");
-  //     //   setNumber(0);
-  //   } else {
-  //     console.log("3");
-  //     if (number.toString() === "0") {
-  //       setNumber(digit);
-  //     } else {
-  //       setNumber(number.toString() + digit.toString());
-  //     }
-  //   }
-
-  //   console.log(`Number is: ${number}`);
-
-  //   // onDisplayTextChange(number);
-  // };
-
-  // TESTING ------------------------------------------------------------------------------------------------
+  // Does actions related to the button clicked
   const doButtonActions = (text) => {
     console.log("doButtonActions called");
-    //TODO:  Do validation on input to see if input was correct (e.g. 2..2 is invalid, 2+/4 is invalid).
 
     // Check if text is a symbol
     let symbolPassed = false;
     symbolPassed = isCharSymbol(text);
 
+    if (symbolPassed === true) setDecimalPointUsed(false);
+
     // Check if text is a command (e.g. DEL, RESET, =)
     switch (text) {
       case "DEL":
         if (calcDisplayText.length > 0) {
+          if (calcDisplayText === "0") return;
+
           // modify the current number stored
           let modifiedDisplayText = calcDisplayText.substring(
             0,
@@ -63,7 +35,7 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
           setNumber(modifiedDisplayText);
           return setCalcDisplayText(modifiedDisplayText);
         }
-        break;
+        return;
       case "RESET":
         return resetCalcDisplay();
       case "=":
@@ -90,6 +62,13 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
     // calc text is valued at zero then use the char entered
     if (Number(calcDisplayText) === 0) return setCalcDisplayText(text);
 
+    if (decimalPointUsed === true && text === ".") {
+      return;
+    }
+    if (text === ".") {
+      setDecimalPointUsed(true);
+    }
+
     console.log("updated display text");
     // Display the text entered by the user.
     setCalcDisplayText(calcDisplayText.toString() + text.toString());
@@ -98,8 +77,6 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
     // TODO: Adjust when solution is given, maybe reset when = is pressed??
     if (symbolPassed) setNumber("0");
   };
-
-  //---------------------------------------------------------------------------------------------------------
 
   // Determines whether last char was a symbol
   const wasLastCharSymbol = (text) => {
@@ -139,24 +116,22 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
 
   const performCalculations = (calcString) => {
     let solution = 0;
-    let numbers = calcString.split(/[+-/x]/);
     let symbols = calcString.split(/[1234567890.\s]+/);
     symbols = symbols.filter((element) => element); // removing empty elements
 
     let numbersAndSymbols = calcString.split(/((?:^-)?[0-9\.]+)/g);
-    numbersAndSymbols = numbersAndSymbols.filter((element) => element); // removing empty elements
-    console.log(numbers);
-    console.log(symbols);
-    console.log(numbersAndSymbols);
+    // removing empty elements
+    numbersAndSymbols = numbersAndSymbols.filter((element) => element);
+
+    if (Number(numbersAndSymbols[0]) < 0) symbols.shift();
 
     // Error checking (e.g. "2 +" is invalid ).
     if (numbersAndSymbols.length < 3) return calcString;
 
     let symbolIndex = 0;
+
     solution = Number(numbersAndSymbols[0]);
     for (let i = 0; i < numbersAndSymbols.length; i++) {
-      console.log("inside for looooop");
-      // let symbol;
       if (i % 2 === 0) {
         // Number
         console.log(`number: ${numbersAndSymbols[i]}`);
@@ -185,10 +160,6 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
           }
           symbolIndex++;
         }
-      } else {
-        // Symbol
-        console.log(`symbol: ${numbersAndSymbols[i]}`);
-        // symbol = numbersAndSymbols[i];
       }
     }
 
@@ -200,37 +171,8 @@ const CalcButtons = ({ currTheme, onDisplayTextChange }) => {
   const resetCalcDisplay = () => {
     setCalcDisplayText("0");
     setNumber("0");
+    setDecimalPointUsed(false);
   };
-
-  const doSymbolActions = (symbol) => {
-    switch (symbol) {
-      case "+":
-        setCalcDisplayText(calcDisplayText + "" + symbol);
-        break;
-
-      default:
-        console.warn(`weird symbol received: ${symbol}`);
-    }
-
-    // reset number state
-  };
-
-  // IMPORTANT: Used to run code on initial render AND on every render (when a state changes)
-  /* 
-  useEffect(() => {
-    onDisplayTextChange(number);
-    console.log("useEffect called");
-  });
-  */
-
-  // The use effect below runs on the initial render AND when the number state changes
-
-  // useEffect(() => {
-  //   // update display text state
-  //   setCalcDisplayText(number);
-
-  //   console.log("useEffect for number called");
-  // }, [number]);
 
   // runs when display text changes
   useEffect(() => {

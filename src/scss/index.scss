@@ -1,0 +1,311 @@
+/* Theme 1 */
+$theme1-main-bg-color: hsl(222, 26%, 31%);
+$theme1-toggle-bg: hsl(223, 31%, 20%);
+$theme1-screen-bg: hsl(224, 36%, 15%);
+
+$theme1-btn-key-bg: hsl(30, 25%, 89%);
+$theme1-btn-shadow-bg: hsl(28, 16%, 65%);
+
+$theme1-special-key-bg1: hsl(225, 21%, 49%);
+$theme1-special-key-shadow1: hsl(225, 21%, 49%);
+
+$theme1-special-key-bg2: hsl(6, 63%, 50%);
+$theme1-special-key-shadow2: hsl(6, 70%, 34%);
+
+$theme1-react-info-shadow: hsl(217, 53%, 13%);
+
+$theme1-normal-text-color: rgb(255, 255, 255);
+
+$theme1-normal-btn-text-color: hsl(221, 14%, 31%);
+
+$theme1-dif-color-key1-shadow: hsl(224, 28%, 35%);
+
+/* Theme 2 */
+$theme2-main-bg-color: hsl(0, 0%, 90%);
+
+/* Theme 3 */
+$theme3-main-bg-color: hsl(268, 75%, 9%);
+
+@import "buttons";
+
+/* TODO: USE MODULES 4:30  */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Spartan", sans-serif;
+  font-weight: 700;
+}
+
+.calc-root {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+
+  transition: background 0.6s;
+}
+
+.calc-root-theme1 {
+  background: $theme1-main-bg-color;
+}
+
+.calc-root-theme2 {
+  background: $theme2-main-bg-color;
+}
+
+.calc-root-theme3 {
+  background: $theme3-main-bg-color;
+}
+
+.react-info-div {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  left: 0rem;
+  top: 0rem;
+
+  padding: 1rem 1rem;
+
+  align-items: center;
+  border-radius: 0px 0rem 6rem 0rem;
+  transition: background 0.6s, color 0.3s, box-shadow 0.3s;
+}
+
+.react-info-div-theme1 {
+  box-shadow: 0 0.5rem $theme1-react-info-shadow;
+}
+.react-info-div-theme2 {
+  box-shadow: 0 0.5rem hsl(30, 3%, 71%);
+}
+.react-info-div-theme3 {
+  box-shadow: 0 0.5rem hsl(290, 70%, 36%);
+}
+
+.react-info-div img {
+  cursor: pointer;
+}
+
+.react-info-div h4 {
+  position: relative;
+  font-size: 1.5rem;
+  padding-right: 3rem;
+  top: 0.1rem;
+}
+
+.calculator-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+
+  max-width: calc(100% - 5rem);
+}
+
+.header-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#app-name {
+  font-size: 3rem;
+
+  transition: color 0.3s;
+}
+
+.theme-selector {
+  /* background: rgb(163, 84, 84); */
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-selector .theme-text {
+  align-self: flex-end;
+  transform: translateY(-4px);
+  margin: 0rem 1.25rem;
+
+  transition: color 0.3s;
+}
+
+.selector-container {
+  /* background: rgb(133, 133, 133); */
+  width: 7.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin: 0.25rem 0;
+
+  transition: color 0.3s;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100%;
+  height: 2.25rem;
+  background: $theme1-toggle-bg;
+  border-radius: 2rem;
+
+  cursor: pointer;
+}
+
+.theme-selection {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 1rem;
+}
+
+.theme-selection1 {
+  background: $theme1-special-key-bg2;
+}
+
+.theme-selection2 {
+  background: hsl(25, 98%, 40%);
+}
+
+.theme-selection3 {
+  background: hsl(176, 100%, 44%);
+}
+
+.calc-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+
+  margin: 2rem 0rem;
+  border-radius: 0.75rem;
+
+  width: 100%;
+  height: 10rem;
+
+  transition: background 0.6s;
+}
+
+.calc-display-theme1 {
+  background: $theme1-screen-bg;
+}
+.calc-display-theme2 {
+  background: hsl(0, 0%, 93%);
+}
+.calc-display-theme3 {
+  background: hsl(268, 71%, 12%);
+}
+
+#display {
+  width: 100%;
+
+  text-align: right;
+
+  margin: 2.5rem;
+
+  font-size: 3.5rem;
+
+  transform: translateY(4px);
+
+  transition: color 0.3s;
+}
+
+.normal-text-theme1 {
+  color: $theme1-normal-text-color;
+}
+.normal-btn-text-theme1 {
+  color: $theme1-normal-btn-text-color;
+}
+.normal-text-theme2 {
+  color: hsl(60, 10%, 19%);
+}
+.normal-text-theme3 {
+  color: hsl(52, 100%, 62%);
+}
+
+.attribution {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+
+  p {
+    color: aliceblue;
+    font-size: 1.2rem;
+  }
+}
+
+a {
+  color: aqua;
+}
+
+@media screen and (max-width: 460px) {
+  .react-info-div {
+    padding: 0.25rem;
+
+    align-items: center;
+    border-radius: 0px 0rem 3rem 0rem;
+    transition: background 0.6s, color 0.3s, box-shadow 0.3s;
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    img {
+      width: 4.7rem;
+      height: 4rem;
+    }
+  }
+
+  .calc-buttons {
+    max-width: 45em;
+    padding: 1.5rem;
+
+    border-radius: 0.75rem;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    grid-gap: 1.5rem;
+
+    /* Sets the height for each row */
+    grid-auto-rows: 50px;
+
+    grid-auto-columns: 50px;
+  }
+
+  .button p {
+    font-size: 2rem;
+  }
+
+  .attribution p {
+    font-size: 1rem;
+  }
+}
+
+// Made by: Triple3Apple (https://github.com/Triple3Apple)

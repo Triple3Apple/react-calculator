@@ -1,0 +1,193 @@
+.calc-buttons {
+  max-width: 45rem;
+  padding: 1.5rem;
+
+  border-radius: 0.75rem;
+
+  display: grid;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+
+  /* fr (fractional unit) is better */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+
+  grid-template-columns: repeat(4, 1fr);
+
+  /* 
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem; 
+*/
+
+  grid-gap: 1.5rem;
+
+  /* Sets the height for each row */
+  grid-auto-rows: 70px;
+
+  /* 
+    Below line sets the minimum height to 100px and scales up if content inside is larger than 100px
+  
+    grid-auto-rows: minmax(100px, auto);
+    */
+
+  transition: background 0.6s;
+
+  background: yellow;
+}
+
+.calc-buttons-theme1 {
+  background: $theme1-toggle-bg;
+}
+.calc-buttons-theme2 {
+  background: hsl(0, 5%, 81%);
+}
+.calc-buttons-theme3 {
+  background: hsl(268, 71%, 12%);
+}
+
+.button {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  /* margin: 0.5rem; */
+  border-radius: 0.5rem;
+
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s, color 0.5s;
+}
+
+/* Btn Theme 1 */
+
+.btn-theme1 {
+  background: $theme1-btn-key-bg;
+  box-shadow: 0 0.5rem $theme1-btn-shadow-bg;
+  /*
+    offset-x | offset-y | color 
+    box-shadow: 60px -16px teal;
+  */
+
+  /* use & for nesting, it is a parent selector */
+  &:hover {
+    box-shadow: 0 0rem $theme1-btn-shadow-bg;
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme1-key1 {
+  color: white;
+  background: $theme1-special-key-bg1;
+  box-shadow: 0 0.5rem $theme1-dif-color-key1-shadow;
+
+  &:hover {
+    box-shadow: 0 0 $theme1-dif-color-key1-shadow;
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme1-key2 {
+  color: white;
+  background: $theme1-special-key-bg2;
+  box-shadow: 0 0.5rem $theme1-special-key-shadow2;
+
+  &:hover {
+    box-shadow: 0 0rem $theme1-special-key-shadow2;
+    transform: translateY(0.5rem);
+  }
+}
+
+.button p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+  transform: translateY(4px);
+}
+
+/* Btn Theme 2 */
+
+.btn-theme2 {
+  background: hsl(45, 7%, 89%);
+  box-shadow: 0 0.5rem hsl(35, 11%, 61%);
+
+  &:hover {
+    box-shadow: 0 0rem hsl(35, 11%, 61%);
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme2-key1 {
+  color: white;
+  background: hsl(185, 42%, 37%);
+  box-shadow: 0 0.5rem hsl(185, 58%, 25%);
+
+  &:hover {
+    box-shadow: 0 0 hsl(185, 58%, 25%);
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme2-key2 {
+  color: white;
+  background: hsl(25, 98%, 40%);
+  box-shadow: 0 0.5rem hsl(25, 99%, 27%);
+
+  &:hover {
+    box-shadow: 0 0rem hsl(25, 99%, 27%);
+    transform: translateY(0.5rem);
+  }
+}
+
+/* Btn Theme 3 */
+
+.btn-theme3 {
+  color: hsl(52, 100%, 62%);
+  background: hsl(268, 47%, 21%);
+  box-shadow: 0 0.5rem hsl(290, 70%, 36%);
+
+  &:hover {
+    box-shadow: 0 0rem hsl(290, 70%, 36%);
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme3-key1 {
+  color: white;
+  background: hsl(281, 89%, 26%);
+  box-shadow: 0 0.5rem hsl(285, 91%, 52%);
+
+  &:hover {
+    box-shadow: 0 0 hsl(285, 91%, 52%);
+    transform: translateY(0.5rem);
+  }
+}
+
+.dif-color-theme3-key2 {
+  color: hsl(198, 20%, 13%);
+  background: hsl(176, 100%, 44%);
+  box-shadow: 0 0.5rem hsl(177, 92%, 70%);
+
+  &:hover {
+    box-shadow: 0 0rem hsl(177, 92%, 70%);
+    transform: translateY(0.5rem);
+  }
+}
+
+.button p {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+  transform: translateY(4px);
+}
+
+.two-grid-button1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.two-grid-button2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}

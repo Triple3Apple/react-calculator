@@ -1,3 +1,7 @@
+$btn-box-shadow-offset: 0.5rem;
+
+$btn-box-shadow-offset-mobile: 0.5rem / 2;
+
 .calc-buttons {
   max-width: 45rem;
   padding: 1.5rem;
@@ -60,7 +64,7 @@
 
 .btn-theme1 {
   background: $theme1-btn-key-bg;
-  box-shadow: 0 0.5rem $theme1-btn-shadow-bg;
+  box-shadow: 0 $btn-box-shadow-offset $theme1-btn-shadow-bg;
   /*
     offset-x | offset-y | color 
     box-shadow: 60px -16px teal;
@@ -69,29 +73,29 @@
   /* use & for nesting, it is a parent selector */
   &:hover {
     box-shadow: 0 0rem $theme1-btn-shadow-bg;
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme1-key1 {
   color: white;
   background: $theme1-special-key-bg1;
-  box-shadow: 0 0.5rem $theme1-dif-color-key1-shadow;
+  box-shadow: 0 $btn-box-shadow-offset $theme1-dif-color-key1-shadow;
 
   &:hover {
     box-shadow: 0 0 $theme1-dif-color-key1-shadow;
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme1-key2 {
   color: white;
   background: $theme1-special-key-bg2;
-  box-shadow: 0 0.5rem $theme1-special-key-shadow2;
+  box-shadow: 0 $btn-box-shadow-offset $theme1-special-key-shadow2;
 
   &:hover {
     box-shadow: 0 0rem $theme1-special-key-shadow2;
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
@@ -108,33 +112,33 @@
 
 .btn-theme2 {
   background: hsl(45, 7%, 89%);
-  box-shadow: 0 0.5rem hsl(35, 11%, 61%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(35, 11%, 61%);
 
   &:hover {
     box-shadow: 0 0rem hsl(35, 11%, 61%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme2-key1 {
   color: white;
   background: hsl(185, 42%, 37%);
-  box-shadow: 0 0.5rem hsl(185, 58%, 25%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(185, 58%, 25%);
 
   &:hover {
     box-shadow: 0 0 hsl(185, 58%, 25%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme2-key2 {
   color: white;
   background: hsl(25, 98%, 40%);
-  box-shadow: 0 0.5rem hsl(25, 99%, 27%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(25, 99%, 27%);
 
   &:hover {
     box-shadow: 0 0rem hsl(25, 99%, 27%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
@@ -143,33 +147,33 @@
 .btn-theme3 {
   color: hsl(52, 100%, 62%);
   background: hsl(268, 47%, 21%);
-  box-shadow: 0 0.5rem hsl(290, 70%, 36%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(290, 70%, 36%);
 
   &:hover {
     box-shadow: 0 0rem hsl(290, 70%, 36%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme3-key1 {
   color: white;
   background: hsl(281, 89%, 26%);
-  box-shadow: 0 0.5rem hsl(285, 91%, 52%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(285, 91%, 52%);
 
   &:hover {
     box-shadow: 0 0 hsl(285, 91%, 52%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
 .dif-color-theme3-key2 {
   color: hsl(198, 20%, 13%);
   background: hsl(176, 100%, 44%);
-  box-shadow: 0 0.5rem hsl(177, 92%, 70%);
+  box-shadow: 0 $btn-box-shadow-offset hsl(177, 92%, 70%);
 
   &:hover {
     box-shadow: 0 0rem hsl(177, 92%, 70%);
-    transform: translateY(0.5rem);
+    transform: translateY($btn-box-shadow-offset);
   }
 }
 
@@ -190,4 +194,89 @@
 .two-grid-button2 {
   grid-column-start: 3;
   grid-column-end: 5;
+}
+
+@media screen and (max-width: 300px) {
+  .button p {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+
+    transform: translateY(4px);
+  }
+
+  .btn-theme1 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile $theme1-btn-shadow-bg;
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme1-key1 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile $theme1-dif-color-key1-shadow;
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme1-key2 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile $theme1-special-key-shadow2;
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .btn-theme2 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(35, 11%, 61%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme2-key1 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(185, 58%, 25%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme2-key2 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(25, 99%, 27%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  /* Btn Theme 3 */
+
+  .btn-theme3 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(290, 70%, 36%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme3-key1 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(285, 91%, 52%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
+
+  .dif-color-theme3-key2 {
+    box-shadow: 0 $btn-box-shadow-offset-mobile hsl(177, 92%, 70%);
+
+    &:hover {
+      transform: translateY($btn-box-shadow-offset-mobile);
+    }
+  }
 }

@@ -1,0 +1,127 @@
+$app-name-font-size: 3rem;
+
+.header-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#app-name {
+  font-size: $app-name-font-size;
+
+  transition: color 0.3s;
+}
+
+.theme-selector {
+  /* background: rgb(163, 84, 84); */
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-selector .theme-text {
+  align-self: flex-end;
+  transform: translateY(-4px);
+  margin: 0rem 1.25rem;
+
+  transition: color 0.3s;
+}
+
+.selector-container {
+  /* background: rgb(133, 133, 133); */
+  width: 7.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.numbers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  margin: 0.25rem 0;
+
+  transition: color 0.3s;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 100%;
+  height: 2.25rem;
+  background: $theme1-toggle-bg;
+  border-radius: 2rem;
+
+  cursor: pointer;
+}
+
+.theme-selection {
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 1rem;
+}
+
+.theme-selection1 {
+  background: $theme1-special-key-bg2;
+}
+
+.theme-selection2 {
+  background: hsl(25, 98%, 40%);
+}
+
+.theme-selection3 {
+  background: hsl(176, 100%, 44%);
+}
+
+@media screen and (max-width: 300px) {
+  .header-container {
+    font-size: 0.75rem;
+  }
+
+  #app-name {
+    font-size: $app-name-font-size / 2;
+  }
+
+  .theme-selector .theme-text {
+    transform: translateY(-2px);
+    margin: 0rem 1rem;
+  }
+
+  .numbers {
+    width: 80%;
+
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin: 0.25rem 0;
+  }
+
+  .selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 80%;
+    height: 1.5rem;
+    background: $theme1-toggle-bg;
+    border-radius: 2rem;
+
+    cursor: pointer;
+  }
+
+  .theme-selection {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 1rem;
+  }
+}
